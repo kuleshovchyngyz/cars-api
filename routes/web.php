@@ -18,7 +18,7 @@ Route::get('/', function () {
 //    $types = \Illuminate\Support\Facades\Cache::remember('types',33600,function (){
 //       return    \App\Models\CarType::all();
 //    });
-    return view('welcome',compact('types'));
+    return view('welcome');
 });
 Route::get('/get', function () {
 
