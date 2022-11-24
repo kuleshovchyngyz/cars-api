@@ -47,4 +47,6 @@ class CarSerie extends Model
         return $this->hasMany(CarModification::class, 'car_series_id', 'id');
     }
 
+
+
 }

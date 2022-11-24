@@ -25,4 +25,22 @@ class CarMark extends Model
     {
         return $this->hasMany(CarModel::class);
     }
+    public function getCarModelList()
+    {
+
+            $carModels = $this->carModels()
+                ->select('id', 'name')
+                ->orderBy('rank', 'asc')->orderBy('name', 'ASC')->get();
+
+            if (count($carModels) > 0) {
+                return $carModels;
+            } else {
+                return ['id' => 0, 'name' => __('Unknown Model')];
+            }
+
+    }
+//    public function scopePopular($query)
+//    {
+//        return $query->where('votes', '>', 100);
+//    }
 }

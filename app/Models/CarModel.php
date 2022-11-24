@@ -95,4 +95,24 @@ class CarModel extends Model
         return $this->carGenerations()->with('carSeries')->get();
     }
 
+    public function getCarSeriesList( $generation_id)
+    {
+
+            $searchFilter[] = ['car_model_id', $this->attributes['id']];
+            if (isset($generation_id) && is_numeric($generation_id) && $generation_id > 0) {
+                $searchFilter[] = ['car_generation_id', $generation_id];
+            }
+
+            $carSeries = $this->carSeries()
+                ->where($searchFilter)
+                ->select('id', 'name')
+                ->get();
+            $returnValues = [];
+            foreach ($carSeries as $singleSeries) {
+                $returnValues[] = (object)['id' => $singleSeries->id, 'name' => $singleSeries->name, 'body' => $singleSeries->body_name];
+            }
+            return $returnValues;
+
+    }
+
 }

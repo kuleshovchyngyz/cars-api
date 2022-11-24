@@ -35,6 +35,15 @@ Route::get('modifications/{carModification}',[CarController::class,'modification
     Route::get('modifications/{carModification}/transmissions', [CarController::class, 'transmissions']);
     Route::get('modifications/{carModification}/gears', [CarController::class, 'gears']);
 
+
+
+    Route::get('marklist/{type}', [CarController::class, 'getCarMarkList']);
+    Route::post('app', [CarController::class, 'applicationUpdateData']);
+    Route::post('title', [CarController::class, 'carTitleData']);
+    Route::post('get-cars', [CarController::class, 'getCars']);
+
+
+
 });
 
 
