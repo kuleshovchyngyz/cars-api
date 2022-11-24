@@ -28,7 +28,7 @@ class CarController extends Controller
 
     public function carMarks(CarType $carType)
     {
-        return CarResource::collection($carType->carMarks);
+        return CarResource::collection($carType->getCarMarkList());
     }
 
     public function carMark(CarMark $carMark)
